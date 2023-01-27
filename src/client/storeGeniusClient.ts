@@ -1,0 +1,15 @@
+import axios, { AxiosRequestConfig } from "axios";
+
+export const storeClient = axios.create({
+    baseURL: 'http://localhost:8081/store-genius',
+    timeout: 1000,
+  });
+
+export const sendFeedback = (name: string, 
+                                email: string,
+                                feedback: string,
+                            options?: AxiosRequestConfig): Promise<any> => {
+    return storeClient.post('/feedback', {name, email, feedback})
+                            .then(res => res.data)
+                            .catch(e=>console.log(e));
+};

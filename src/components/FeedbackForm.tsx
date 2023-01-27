@@ -1,34 +1,26 @@
 import {
     Box,
-    FormControlLabel,
-    FormGroup,
-    FormHelperText,
     TextField,
     Typography,
   } from '@mui/material';
   import { useForm, SubmitHandler } from 'react-hook-form';
-  import { literal, object, string, TypeOf } from 'zod';
+  import {  object, string, TypeOf } from 'zod';
   import { zodResolver } from '@hookform/resolvers/zod';
   import { useEffect, useState } from 'react';
   import { LoadingButton } from '@mui/lab';
-  import Checkbox from '@mui/material/Checkbox';
-  
+  import { sendFeedback } from '../client/storeGeniusClient';
+
   const registerSchema = object({
     name: string()
-      .nonempty('Name is required')
-      .max(32, 'Name must be less than 100 characters'),
-    email: string().min(1, "Email required").email('Email is invalid'),
+      .min(2, 'Name required')
+      .max(30, 'Name must be less than 30 characters'),
+    email: string().min(1, "Email is required").email('Email is invalid'),
     message: string()
-      .min(50, 'Give us more feadback!')
-      .max(500, 'Password must be less than 32 characters'),
+      .min(2, 'Give us more feedback!')
   })
-//   .refine((data) => data.email.length < 250, {
-//     message: 'Give us more feedback!',
-//   });
-  
   type RegisterInput = TypeOf<typeof registerSchema>;
   
-  const RegisterPage = () => {
+  export const FeedbackForm = () => {
     const [loading, setLoading] = useState(false);
   
     const {
@@ -48,7 +40,8 @@ import {
     }, [isSubmitSuccessful]);
   
     const onSubmitForm: SubmitHandler<RegisterInput> = (values) => {
-      console.log(values);
+      console.log("sending form....")
+      sendFeedback(values.name, values.email, values.message)
     };
     console.log(errors);
   
@@ -59,11 +52,13 @@ import {
         </Typography>
         <Box
           component='form'
+          aria-label="feedback-form"
           noValidate
           autoComplete='off'
           onSubmit={handleSubmit(onSubmitForm)}
         >
           <TextField
+            // id="Name"
             sx={{ mb: 2 }}
             label='Name'
             fullWidth
@@ -92,22 +87,6 @@ import {
             helperText={errors['message'] ? errors['message'].message : ''}
             {...register('message')}
           />
-          
-  
-          {/* <FormGroup>
-            <FormControlLabel
-              control={<Checkbox required />}
-              {...register('terms')}
-              label={
-                <Typography color={errors['terms'] ? 'error' : 'inherit'}>
-                  Accept Terms and Conditions
-                </Typography>
-              }
-            />
-            <FormHelperText error={!!errors['terms']}>
-              {errors['terms'] ? errors['terms'].message : ''}
-            </FormHelperText>
-          </FormGroup> */}
   
           <LoadingButton
             variant='contained'
@@ -123,6 +102,5 @@ import {
     );
   };
   
-  export default RegisterPage;
   
   

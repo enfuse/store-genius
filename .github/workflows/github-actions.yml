@@ -1,0 +1,20 @@
+name: Bump version
+on:
+   push:
+      branches:
+        - docker-2
+
+jobs:
+   create-container:
+      runs-on: ubuntu-latest
+      container:
+         image: docker:latest
+      steps:
+        - uses: actions/checkout@v2
+        - uses: azure/docker-login@v1
+          with:
+             login-server: asaeenfuseacr.azurecr.io
+             username: ${{ secrets.ACR_USERNAME }}
+             password: ${{ secrets.ACR_PASSWORD }}
+        - run: docker build . -t asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
+        - run: docker push asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}

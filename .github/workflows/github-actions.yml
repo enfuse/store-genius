@@ -16,5 +16,5 @@ jobs:
              login-server: asaeenfuseacr.azurecr.io
              username: ${{ secrets.ACR_USERNAME }}
              password: ${{ secrets.ACR_PASSWORD }}
-        - run: docker build . -t asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
+        - run: docker build  -f Dockerfile-nginx-2 . -t asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
         - run: docker push asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}

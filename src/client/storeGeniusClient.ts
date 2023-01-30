@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 
 export const storeClient = axios.create({
-    baseURL: 'http://localhost:8081/store-genius',
+    baseURL: '/store-genius',
     timeout: 1000,
   });
 

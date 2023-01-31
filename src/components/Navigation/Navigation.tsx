@@ -11,14 +11,14 @@ import { MatterportDemo } from '../MatterportDemo/MatterportDemo';
 import { StoreViewer } from '../StoreViewer/StoreViewer';
 
 export const Navigation =() => {
-  const [value, setValue] = React.useState('ops');
+  const [value, setValue] = React.useState('beer-demo');
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 
   return (
-    <Box sx={{ width: '100%', typography: 'body1' }}>
+    <Box sx={{borderTop: '1px solid rgba(0, 0, 0, 0.12)'}}>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange} centered>

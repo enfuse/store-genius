@@ -1,30 +1,31 @@
-import { Typography } from "@mui/material";
 import React, {useState} from "react";
-// import styles from "../index.module.css";
-import {BeerMappins, BEER_MAPPING, DEFAULT_BEER, Product} from "./utils";
-import {getBeerRecommendation} from '../../client/promptClient'
-import { Matterport } from "./Matterport";
+import './BeerDemo.css';
+import {BEER_MAPPING, DEFAULT_BEER, Product} from "./utils";
+import {Matterport} from "./Matterport";
+import beer from '../../beer.jpg';
+import {getBeerRecommendation} from "../../client/promptClient";
 
 export default function BeerDemoHome() {
     const [beerInput, setBeerInput] = useState(DEFAULT_BEER);
     const [useDefaultBeer, setUseDefaultBeer] = useState(true);
     const [shoppingListInput, setShoppingListInput] = useState("");
-    const [result, setResult] = useState();
+    const [result, setResult] = useState<string|null>(null);
     const [selectedBeer, setSelectedBeer] = useState<Product|null>(null);
     const [loading, setLoading] = useState(false);
+
     async function onSubmit(event: React.SyntheticEvent) {
         event.preventDefault();
-        setResult(undefined);
+        setResult(null);
         setSelectedBeer(null);
         setLoading(true)
-        const data = await getBeerRecommendation(beerInput,shoppingListInput)
-        console.log("response", data)
-        // const data = await response.json();
-        if (useDefaultBeer) {
-            for (let key of Object.keys(BEER_MAPPING)) {
 
-                if (data.includes(key)) {
-                    setSelectedBeer(BEER_MAPPING[key as keyof BeerMappins] as Product);                    break;
+        const data = await getBeerRecommendation(beerInput, shoppingListInput)
+        console.log("response", data)
+        if (useDefaultBeer) {
+            for (let i = 0; i < BEER_MAPPING.length; i++) {
+                if (data.result.includes(BEER_MAPPING[i].name)) {
+                    setSelectedBeer(BEER_MAPPING[i]);
+                    break;
                 }
             }
         }
@@ -33,7 +34,7 @@ export default function BeerDemoHome() {
         setShoppingListInput("");
     }
 
-    let onUseDefaultBeerChecked = () => {
+    let useDefaultBeerChecked = () => {
         if (!useDefaultBeer) {
             setBeerInput(DEFAULT_BEER)
         }
@@ -41,13 +42,8 @@ export default function BeerDemoHome() {
     };
 
     return (
-        <div>
-
-
-            {/* <main className={styles.main}> */}
-            <main >
-                {/* <img src="/beer.jpg" className={styles.icon}/> */}
-                {/* <img src="/beer.jpg"/> */}
+        <div className="beer-demo">
+                 <img src={beer} className="icon" alt="beer icon"/>
                 <h3>Recommend a beer for me!</h3>
                 <p>
                     This site will recommend a beer for you, you can optionally give it a list of beers (e.g. heineken,
@@ -58,9 +54,8 @@ export default function BeerDemoHome() {
                 </p>
                 <form onSubmit={onSubmit}>
                     <label>Beer List</label>
-                    {/* <div className={styles.flex}> */}
-                    <div>
-                        <input type="checkbox"  checked={useDefaultBeer} onChange={onUseDefaultBeerChecked}/>
+                    <div className="flex">
+                        <input type="checkbox"  checked={useDefaultBeer} onChange={useDefaultBeerChecked}/>
                         <small style={{alignSelf: "end", transform: "translate(-30px, -20px)", color: "#8e8ea0"}}>default</small>
                         <input
                             style={{  flex: 1}}
@@ -85,17 +80,13 @@ export default function BeerDemoHome() {
                     <input type="submit" value="Generate Beer Recommendation"
                            disabled={shoppingListInput.length === 0 || beerInput.length === 0}/>
                 </form>
-                {/* {!!loading && <div className={styles.loading}></div>} */}
-                {!!loading && <div></div>}
-                {/* {!!result && <div className={styles.result}>{result}</div>} */}
-                {!!result && <div >{result}</div>}
+                {loading && <div className="loading"></div>}
+                {!!result && <div className="result">{result}</div>}
                 {!!selectedBeer && <>
-                    {/* <div className={styles.aisle}>You can find this here: */}
-                    <div >You can find this here:
+                     <div className="aisle">You can find this here:
                         <Matterport position={selectedBeer.position} name={selectedBeer.name}/>
                     </div>
                 </>}
-            </main>
         </div>
     );
 }

@@ -6,7 +6,7 @@ import { Typography } from '@mui/material';
 function App() {
   return (
     <div className="store-genius">
-      <Typography align="center" variant="h1" >Store Genius</Typography>
+      <Typography align="center" variant="h2" >Store Genius</Typography>
       <Navigation/>
       <FeedbackForm/>
     </div>

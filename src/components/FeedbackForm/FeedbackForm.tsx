@@ -37,8 +37,7 @@ import "./FeedbackForm.css"
       if (isSubmitSuccessful) {
         reset();
       }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [isSubmitSuccessful]);
+    }, [isSubmitSuccessful, reset]);
   
     const onSubmitForm: SubmitHandler<RegisterInput> = (values) => {
       console.log("sending form....")

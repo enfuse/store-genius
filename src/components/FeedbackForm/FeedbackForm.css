@@ -1,0 +1,5 @@
+.feedback-form {
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+  }

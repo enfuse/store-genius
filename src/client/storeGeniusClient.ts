@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig } from "axios";
 
 export const storeClient = axios.create({
     baseURL: '/store-genius',
-    timeout: 1000,
+    timeout: 10000,
   });
 
 export const sendFeedback = (name: string, 

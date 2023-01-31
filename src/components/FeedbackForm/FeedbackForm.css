@@ -2,5 +2,15 @@
     border-top: 1px solid rgba(0, 0, 0, 0.12);
     display: flex;
     justify-content: center;
-    padding-top: 10px;
-  }
+    padding: 2rem 0 0 0;
+}
+
+.feedback-form-box {
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    padding: 0.5rem 2.5rem 2.5rem 2.5rem;
+    max-width: 50rem;
+    background-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 -2px 5px 0 hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)), 0 1px 1px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)), 0 2px 2px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)), 0 5px 5px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 4%)), 0 9px 9px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 5%)), 0 16px 16px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 6%));
+    text-align: center;
+}

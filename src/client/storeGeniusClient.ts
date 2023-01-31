@@ -5,11 +5,8 @@ export const storeClient = axios.create({
     timeout: 10000,
   });
 
-export const sendFeedback = (name: string, 
-                                email: string,
-                                feedback: string,
-                            options?: AxiosRequestConfig): Promise<any> => {
-    return storeClient.post('/feedback', {name, email, feedback})
-                            .then(res => res.data)
-                            .catch(e=>console.log(e));
+export const sendFeedback = (email: string,
+                                feedback: string): Promise<any> => {
+    return storeClient.post('/feedback', {email, feedback});
+//    TODO Christian remove name from backend
 };

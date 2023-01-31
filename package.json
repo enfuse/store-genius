@@ -19,19 +19,14 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.42.1",
-    "react-scripts": "5.0.1",
     "typescript": "^4.9.4",
     "web-vitals": "^2.1.4",
     "zod": "^3.20.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\" --env=jsdom",
-    "eject": "react-scripts eject",
-    "fetch-bundle": "cross-var curl https://static.matterport.com/showcase-sdk/bundle/3.1.86.4-0-g4a2432b652/showcase-bundle.zip -o bundle.zip",
-    "expand-bundle": "decompress bundle.zip --out-dir=./public/bundle",
-    "install-bundle": "npm run fetch-bundle && npm run expand-bundle"
+    "start": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
   },
   "eslintConfig": {
     "extends": [
@@ -54,9 +49,13 @@
   "devDependencies": {
     "@types/jest": "^29.2.6",
     "@types/react-test-renderer": "^18.0.0",
+    "@vitejs/plugin-react": "^3.0.1",
     "cross-var-src-patch": "^1.1.1",
     "decompress-cli": "^2.0.0",
     "jest": "^27.5.1",
-    "react-test-renderer": "^18.2.0"
+    "react-test-renderer": "^18.2.0",
+    "vite": "^4.0.4",
+    "vite-plugin-svgr": "^2.4.0",
+    "vite-tsconfig-paths": "^4.0.5"
   }
 }

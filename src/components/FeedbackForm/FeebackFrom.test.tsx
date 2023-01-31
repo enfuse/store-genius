@@ -4,8 +4,7 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom'
 import {FeedbackForm} from './FeedbackForm'
 import { act } from 'react-test-renderer';
-import {sendFeedback} from '../client/storeGeniusClient'
-import axios from 'axios'
+import {sendFeedback} from '../../client/storeGeniusClient'
 // import {prettyDOM} from '@testing-library/dom'
 
 jest.mock("../client/storeGeniusClient");

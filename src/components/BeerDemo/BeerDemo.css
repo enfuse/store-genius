@@ -1,0 +1,166 @@
+@font-face {
+  font-family: "ColfaxAI";
+  src: url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff2)
+  format("woff2"),
+  url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ColfaxAI";
+  src: url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff2) format("woff2"),
+  url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff) format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+.beer-demo,
+.beer-demo input {
+  font-size: 0.8rem;
+  line-height: 24px;
+  color: #353740;
+  font-family: "ColfaxAI", Helvetica, sans-serif;
+}
+.beer-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 50rem;
+  margin: auto;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  padding: 1rem 0 2rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 -2px 5px 0 hsl(var(--shadow-color) / calc(var(--shadow-strength) + 2%)), 0 1px 1px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)), 0 2px 2px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 3%)), 0 5px 5px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 4%)), 0 9px 9px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 5%)), 0 16px 16px -2px hsl(var(--shadow-color) / calc(var(--shadow-strength) + 6%));;
+}
+.beer-demo p {
+  max-width: 700px;
+  padding-bottom: 1rem;
+  color: #8e8ea0;
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+.beer-demo label {
+  color: #10a37f;
+  font-weight: bold;
+  display: block;
+}
+.beer-demo .icon {
+  width: 60px;
+}
+.beer-demo h3 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: bold;
+  color: #202123;
+  margin: 16px 0 0;
+}
+.beer-demo form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+.beer-demo input[type="text"] {
+  font-size: 0.75rem;
+  padding: 12px 16px;
+  border: 1px solid #10a37f;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.beer-demo input[type="text"]:invalid {
+  border: 1px solid red;
+}
+.beer-demo ::placeholder {
+  color: #8e8ea0;
+  opacity: 1;
+}
+.beer-demo input[type="submit"] {
+  padding: 12px 0;
+  color: #fff;
+  background-color: #10a37f;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.beer-demo input[type="text"]:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+
+.beer-demo input[type="submit"]:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+
+.beer-demo .result {
+  margin-top: 40px;
+  padding: 0.5rem;
+  max-width: 700px;
+  font-weight: bold;
+  border: 2px solid #10a37f;
+  border-radius: 5px;
+}
+
+.beer-demo .aisle {
+  margin-top: 40px;
+  padding: 0.5rem;
+  max-width: 700px;
+  font-weight: bold;
+  border: 2px solid #10a37f;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.beer-demo .aisle p {
+  font-weight: 300;
+  font-size: 0.7rem;
+  color: #8e8ea0;
+  margin: 0;
+  padding: 0;
+}
+
+.beer-demo .loading {
+  margin-top: 40px;
+  padding: 0.5rem;
+  max-width: 700px;
+  width: 80px;
+  height: 80px;
+}
+.beer-demo .loading:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  /*noinspection CssOverwrittenProperties*/
+  border: 6px solid #10a37f;
+  /*noinspection CssOverwrittenProperties*/
+  border-color: #10a37f transparent #10a37f transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.flex input[type="checkbox"] {
+  margin-right: 10px;
+  margin-bottom: 25px;
+}

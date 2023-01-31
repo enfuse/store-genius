@@ -11,6 +11,10 @@ server {
      location /store-genius {
          proxy_pass https://asae-enfuse-sandbox-store-genius-service.azuremicroservices.io/store-genius;
      }
+     
+     location /prompt {
+         proxy_pass https://asae-enfuse-sandbox-store-genius-service.azuremicroservices.io/prompt;
+     }
 
      gzip on;
      gzip_vary on;

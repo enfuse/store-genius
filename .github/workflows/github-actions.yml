@@ -16,5 +16,19 @@ jobs:
              login-server: asaeenfuseacr.azurecr.io
              username: ${{ secrets.ACR_USERNAME }}
              password: ${{ secrets.ACR_PASSWORD }}
+        - uses: azure/login@v1
+          with:
+            creds: ${{ secrets.ACR_CREDENTIALS }}
+
         - run: docker build  -f Dockerfile-nginx-2 . -t asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
         - run: docker push asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
+        - run: az config set extension.use_dynamic_install=yes_without_prompt
+        - run: |
+            az spring app deploy \
+               --service asae-enfuse-sandbox \
+               --resource-group asaeSandbox \
+               --name store-genius \
+               --container-image store-genius:v3 \  
+               --container-registry asaeenfuseacr.azurecr.io \
+               --registry-username ${{ secrets.ACR_USERNAME }} \
+               --registry-password ${{ secrets.ACR_PASSWORD }}    

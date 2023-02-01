@@ -24,6 +24,7 @@ jobs:
       #   - run: docker push asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
       #   - run: az config set extension.use_dynamic_install=yes_without_prompt
         - run: echo ${{ secrets.AZ_CREDENTIALS }}
+        - run: echo ${{ secrets.ACR_USERNAME }}
       #   - run: |
       #       az spring app deploy \
       #          --service asae-enfuse-sandbox \

@@ -22,4 +22,3 @@ jobs:
         - run: docker push asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
         - run: |
             az spring app deploy -s asae-enfuse-sandbox -g asaeSandbox -n store-genius --container-image store-genius:v${{ github.run_number }} --container-registry asaeenfuseacr.azurecr.io --registry-username ${{ secrets.ACR_USERNAME }} --registry-password ${{ secrets.ACR_PASSWORD }}
-

@@ -17,10 +17,9 @@ jobs:
         - uses: azure/login@v1
           with:
             creds: ${{ secrets.AZ_CREDENTIALS }}
-            
+        - run: az config set extension.use_dynamic_install=yes_without_prompt
         - run: docker build  -f Dockerfile-nginx-2 . -t asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
         - run: docker push asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
-        - run: az config set extension.use_dynamic_install=yes_without_prompt
         - run: |
             az spring app deploy \
                --service asae-enfuse-sandbox \

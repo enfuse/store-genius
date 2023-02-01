@@ -1,9 +1,9 @@
-// import {MpSdk,Vector3, Pointer, IObservable} from '../../bundle/sdk'
-// import Vertex = MpSdk.Graph.Vertex
+import {MpSdk,Vector3, Pointer, IObservable} from '../../../bundle/sdk'
+import Vertex = MpSdk.Graph.Vertex
 // import ObservableSweepData = MpSdk.Sweep.ObservableSweepData
 // import IDirectedGraph = MpSdk.Graph.IDirectedGraph
-// import {useEffect} from "react";
-// import * as React from 'react'
+import {useEffect} from "react";
+import * as React from 'react'
 declare global {
     interface Window {
         MP_SDK: any;
@@ -12,8 +12,8 @@ declare global {
 
 export function Matterport(props:any) {
 //     const SHOW_CURRENT_POSITION = false;
-//
-//
+
+
 //     useEffect(() => {
 //         const showcase = document.getElementById('showcase') as HTMLIFrameElement;
 //         const currentPositionEl = document.getElementById('position') as HTMLElement;
@@ -30,7 +30,7 @@ export function Matterport(props:any) {
 //                 const startSweep = sweepGraph.vertex('3cac7cd82fb24055997bd43d980504ef') as Vertex<ObservableSweepData>;
 //                 const aStarRunner = sdk.Graph.createAStarRunner(sweepGraph, startSweep, closestSweep!);
 //                 result = aStarRunner.exec();
-//
+
 //                 if (result.status === sdk.Graph.AStarStatus.SUCCESS) {
 //                     console.log('found a path of length', result.path.length);
 //                     const pathTags = []
@@ -53,7 +53,7 @@ export function Matterport(props:any) {
 //                 renderer.shadowMap.bias = 0.0001;
 //                 renderer.shadowMap.type = three.PCFSoftShadowMap;
 //             })
-//
+
 //             function printCoords(intersectionData: Pointer.Intersection) {
 //                 currentPositionEl.innerHTML = `Cursor position: ${pointToString(intersectionData.position)}`;
 //             }
@@ -62,13 +62,13 @@ export function Matterport(props:any) {
 //             }
 //         });
 //     }, []);
-//
+// //
     return (<>
-    <div id="position"></div>
-{/*//     <iframe id="showcase" src="/bundle/showcase.html?m=9bVW1AtJSnp&play=1&qs=1&log=0&applicationKey=3m3m3uk3827dqwagmrnn0wwdd" width="680px" height="510px" frameBorder="0" allow="xr-spatial-tracking" allowFullScreen/>*/}
-//TODO </>)
+//     <div id="position"></div>
+{/* // //     <iframe id="showcase" src="/bundle/showcase.html?m=9bVW1AtJSnp&play=1&qs=1&log=0&applicationKey=3m3m3uk3827dqwagmrnn0wwdd" width="680px" height="510px" frameBorder="0" allow="xr-spatial-tracking" allowFullScreen/> */}
+// //TODO </>)
 // }
-//
+
 // function getSweepVertices(sweepGraph: IDirectedGraph<ObservableSweepData>) {
 //     const sweepVertices: Vertex<ObservableSweepData>[] = []
 //     for (const vertex of sweepGraph.vertices) {
@@ -76,15 +76,15 @@ export function Matterport(props:any) {
 //     }
 //     return sweepVertices
 // }
-//
-//
+
+
 // function distance3D(positionA: Vector3, positionB: Vector3) {
 //     const dX = positionA.x - positionB.x;
 //     const dY = positionA.y - positionB.y;
 //     const dZ = positionA.z - positionB.z;
 //     return Math.sqrt((dX * dX) + (dY * dY) + (dZ * dZ));
 // }
-//
+
 // function getClosestSweep(source: Vector3, sweepVertices: Vertex<ObservableSweepData>[]) : Vertex<ObservableSweepData> |null  {
 //     let closestDistance: number | undefined = undefined
 //     let closestSweep : Vertex<ObservableSweepData> | null =null
@@ -98,12 +98,12 @@ export function Matterport(props:any) {
 //     console.log("closest sweep:", closestDistance, closestSweep)
 //     return closestSweep
 // }
-//
+
 // async function stepToTargetDestination(sdk: any, path: any, idx = 0) {
 //     const rotation = {x: 0, y: 0};
 //     const transition = sdk.Sweep.Transition.FLY;
 //     const transitionTime = 2000;
-//
+
 //     //wait for inside mode to load completely
 //     await sdk.Mode.transition.waitUntil(function (transition: any) {
 //         return transition.from == null && transition.to == null
@@ -122,11 +122,11 @@ export function Matterport(props:any) {
 //             console.log(e)
 //         });
 // }
-//
+
 // function pointToString(point:any) {
 //     var x = point.x.toFixed(3);
 //     var y = point.y.toFixed(3);
 //     var z = point.z.toFixed(3);
-//
+
 //     return `{ x: ${x}, y: ${y}, z: ${z} }`;
 }

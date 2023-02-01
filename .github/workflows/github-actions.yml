@@ -18,7 +18,7 @@ jobs:
              password: ${{ secrets.ACR_PASSWORD }}
         - uses: azure/login@v1
           with:
-            creds: ${{ secrets.ACR_CREDENTIALS }}
+            creds: ${{ secrets.AZ_CREDENTIALS }}
 
         - run: docker build  -f Dockerfile-nginx-2 . -t asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
         - run: docker push asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}

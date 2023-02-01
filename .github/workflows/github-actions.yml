@@ -2,7 +2,7 @@ name: Bump version
 on:
    push:
       branches:
-        - docker-2
+        - ci-test
 
 jobs:
    create-container:
@@ -28,7 +28,7 @@ jobs:
                --service asae-enfuse-sandbox \
                --resource-group asaeSandbox \
                --name store-genius \
-               --container-image store-genius:v3 \  
+               --container-image store-genius:v${{ github.run_number }} \  
                --container-registry asaeenfuseacr.azurecr.io \
                --registry-username ${{ secrets.ACR_USERNAME }} \
                --registry-password ${{ secrets.ACR_PASSWORD }}    

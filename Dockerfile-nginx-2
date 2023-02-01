@@ -14,7 +14,7 @@ WORKDIR /web
 RUN rm /etc/nginx/conf.d/default.conf
 COPY --from=builder app/nginx/templates/default.conf.template /etc/nginx/conf.d/default.conf.template
 # COPY
-COPY --from=builder app/build /usr/share/nginx/html
+COPY --from=builder app/dist /usr/share/nginx/html
 # To copy env variables later
 # COPY --from=builder app/.env.local /usr/share/nginx/html/.env
 

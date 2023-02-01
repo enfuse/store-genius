@@ -20,16 +20,15 @@ export default function BeerDemoHome() {
         setLoading(true)
 
         const data = await getBeerRecommendation(beerInput, shoppingListInput)
-        console.log("response", data)
         if (useDefaultBeer) {
             for (let i = 0; i < BEER_MAPPING.length; i++) {
-                if (data.result.includes(BEER_MAPPING[i].name)) {
+                if (data.includes(BEER_MAPPING[i].name)) {
                     setSelectedBeer(BEER_MAPPING[i]);
                     break;
                 }
             }
         }
-        setResult(data.result);
+        setResult(data);
         setLoading(false)
         setShoppingListInput("");
     }

@@ -10,27 +10,25 @@ jobs:
       container:
          image: docker:latest
       steps:
-      #   - uses: actions/checkout@v2
-      #   - uses: azure/docker-login@v1
-      #     with:
-      #        login-server: asaeenfuseacr.azurecr.io
-      #        username: ${{ secrets.ACR_USERNAME }}
-      #        password: ${{ secrets.ACR_PASSWORD }}
-      #   - uses: azure/login@v1
-      #     with:
-      #       creds: ${{ secrets.AZ_CREDENTIALS }}
+        - uses: actions/checkout@v2
+        - uses: azure/docker-login@v1
+          with:
+             login-server: asaeenfuseacr.azurecr.io
+             username: ${{ secrets.ACR_USERNAME }}
+             password: ${{ secrets.ACR_PASSWORD }}
+        - uses: azure/login@v1
+          with:
+            creds: ${{ secrets.AZ_CREDENTIALS }}
 
-      #   - run: docker build  -f Dockerfile-nginx-2 . -t asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
-      #   - run: docker push asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
-      #   - run: az config set extension.use_dynamic_install=yes_without_prompt
-        - run: echo ${{ secrets.AZ_CREDENTIALS }}
-        - run: echo ${{ secrets.ACR_USERNAME }}
-      #   - run: |
-      #       az spring app deploy \
-      #          --service asae-enfuse-sandbox \
-      #          --resource-group asaeSandbox \
-      #          --name store-genius \
-      #          --container-image store-genius:v${{ github.run_number }} \  
-      #          --container-registry asaeenfuseacr.azurecr.io \
-      #          --registry-username ${{ secrets.ACR_USERNAME }} \
-      #          --registry-password ${{ secrets.ACR_PASSWORD }}    
+        - run: docker build  -f Dockerfile-nginx-2 . -t asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
+        - run: docker push asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
+        - run: az config set extension.use_dynamic_install=yes_without_prompt
+        - run: |
+            az spring app deploy \
+               --service asae-enfuse-sandbox \
+               --resource-group asaeSandbox \
+               --name store-genius \
+               --container-image store-genius:v${{ github.run_number }} \  
+               --container-registry asaeenfuseacr.azurecr.io \
+               --registry-username ${{ secrets.ACR_USERNAME }} \
+               --registry-password ${{ secrets.ACR_PASSWORD }}    

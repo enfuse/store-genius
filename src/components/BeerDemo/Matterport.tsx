@@ -1,5 +1,5 @@
-import {MpSdk,Vector3, Pointer, IObservable} from '../../../bundle/sdk'
-import Vertex = MpSdk.Graph.Vertex
+// import {MpSdk,Vector3, Pointer, IObservable} from 'mp-bundle-sdk'
+// import Vertex = MpSdk.Graph.Vertex
 // import ObservableSweepData = MpSdk.Sweep.ObservableSweepData
 // import IDirectedGraph = MpSdk.Graph.IDirectedGraph
 import {useEffect} from "react";

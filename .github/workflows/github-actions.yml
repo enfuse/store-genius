@@ -7,8 +7,6 @@ on:
 jobs:
    create-container:
       runs-on: ubuntu-latest
-      container:
-         image: docker:latest
       steps:
         - uses: actions/checkout@v2
         - uses: azure/docker-login@v1
@@ -16,5 +14,11 @@ jobs:
              login-server: asaeenfuseacr.azurecr.io
              username: ${{ secrets.ACR_USERNAME }}
              password: ${{ secrets.ACR_PASSWORD }}
-        - run: docker build  -f Dockerfile-nginx-2 . -t asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
+        - uses: azure/login@v1
+          with:
+            creds: ${{ secrets.AZ_CREDENTIALS }}
+        - run: az config set extension.use_dynamic_install=yes_without_prompt
+        - run: docker build  -f Dockerfile . -t asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
         - run: docker push asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
+        - run: |
+            az spring app deploy -s asae-enfuse-sandbox -g asaeSandbox -n store-genius --container-image store-genius:v${{ github.run_number }} --container-registry asaeenfuseacr.azurecr.io --registry-username ${{ secrets.ACR_USERNAME }} --registry-password ${{ secrets.ACR_PASSWORD }}

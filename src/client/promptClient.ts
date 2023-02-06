@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 
 export const promptClient = axios.create({
-    baseURL: 'http://localhost:8080/prompt',
+    baseURL: '/prompt',
     timeout: 10000,
   });
 

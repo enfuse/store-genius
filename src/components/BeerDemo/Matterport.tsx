@@ -66,7 +66,7 @@ export function Matterport(props:any) {
     return (<>
     <div id="position"></div>
 {/*//     <iframe id="showcase" src="/bundle/showcase.html?m=9bVW1AtJSnp&play=1&qs=1&log=0&applicationKey=3m3m3uk3827dqwagmrnn0wwdd" width="680px" height="510px" frameBorder="0" allow="xr-spatial-tracking" allowFullScreen/>*/}
-//TODO </>)
+ Matterport comming up..</>)
 // }
 //
 // function getSweepVertices(sweepGraph: IDirectedGraph<ObservableSweepData>) {

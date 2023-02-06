@@ -2,7 +2,7 @@ name: Bump version
 on:
    push:
       branches:
-        - docker-2
+        - main
 
 jobs:
    create-container:

@@ -13,6 +13,7 @@ declare global {
 
 export function Matterport(props:any) {
     const SHOW_CURRENT_POSITION = false;
+    const API_KEY = import.meta.env.VITE_REACT_APP_MATTERPORT_API_KEY
 
     useEffect(() => {
         window.process = {
@@ -27,7 +28,7 @@ export function Matterport(props:any) {
             let sdk:MpSdk;
             let result;
             try {
-                sdk = await showcase!.contentWindow!.MP_SDK.connect(showcase, import.meta.env.MATTERPORT_API_KEY, '3.10');
+                sdk = await showcase!.contentWindow!.MP_SDK.connect(showcase, API_KEY, '3.10');
                 const sweepGraph = await sdk.Sweep.createGraph()
                 const sweepVertices = getSweepVertices(sweepGraph)
                 const TARGET_VECTOR: Vector3 = props.position
@@ -68,9 +69,10 @@ export function Matterport(props:any) {
         });
     }, []);
 
+    console.log(API_KEY)
     return (<>
         <div id="position"></div>
-        <iframe id="showcase" src={showcaseUrl + "?m=9bVW1AtJSnp&play=1&qs=1&log=0&applicationKey=3m3m3uk3827dqwagmrnn0wwdd"} width="680px" height="510px" frameBorder="0" allow="xr-spatial-tracking" allowFullScreen/>
+        <iframe id="showcase" src={showcaseUrl + "?m=9bVW1AtJSnp&play=1&qs=1&log=0&applicationKey=" + API_KEY} width="680px" height="510px" frameBorder="0" allow="xr-spatial-tracking" allowFullScreen/>
     </>)
 }
 

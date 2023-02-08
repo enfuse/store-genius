@@ -11,7 +11,7 @@ import { MatterportDemo } from '../MatterportDemo/MatterportDemo';
 import { StoreViewer } from '../StoreViewer/StoreViewer';
 
 export const Navigation =() => {
-  const [value, setValue] = React.useState('beer-demo');
+  const [value, setValue] = React.useState('ops');
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);

@@ -1,5 +1,5 @@
 import type {MpSdk,Vector3, Pointer, IObservable} from '@matterport/webcomponent'
-import showcaseUrl from '../../bundle/showcase.html?url'
+import showcaseUrl from '../../../public/bundle/showcase.html?url'
 type Vertex<T> = MpSdk.Graph.Vertex<T>
 type ObservableSweepData = MpSdk.Sweep.ObservableSweepData
 type IDirectedGraph<T> = MpSdk.Graph.IDirectedGraph<T>

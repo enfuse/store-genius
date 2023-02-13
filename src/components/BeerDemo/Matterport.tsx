@@ -27,8 +27,7 @@ export function Matterport(props:any) {
             let sdk:MpSdk;
             let result;
             try {
-                sdk = await showcase!.contentWindow!.MP_SDK.connect(showcase, process.env.REACT_APP_MATTERPORT_API_KEY, '3.10');
-                console.log(sdk)
+                sdk = await showcase!.contentWindow!.MP_SDK.connect(showcase, import.meta.env.MATTERPORT_API_KEY, '3.10');
                 const sweepGraph = await sdk.Sweep.createGraph()
                 const sweepVertices = getSweepVertices(sweepGraph)
                 const TARGET_VECTOR: Vector3 = props.position
@@ -38,7 +37,7 @@ export function Matterport(props:any) {
                 result = aStarRunner.exec();
 
                 if (result.status === sdk.Graph.AStarStatus.SUCCESS) {
-                    console.log('found a path of length', result.path.length);
+                    // console.log('found a path of length', result.path.length);
                     const pathTags = []
                     pathTags.push({
                         label: props.name,
@@ -101,7 +100,6 @@ function getClosestSweep(source: Vector3, sweepVertices: Vertex<ObservableSweepD
             closestSweep = sweep
         }
     })
-    console.log("closest sweep:", closestDistance, closestSweep)
     return closestSweep
 }
 

@@ -1,9 +1,19 @@
 import * as React from 'react'
-
+import {InventoryHealthPanel} from './InventoryHealthPanel'
+import {InventoryNotes} from './InventoryNotes'
+import  './types'
+import { HealthStatus } from './types'
 export const OperationsDasboard = () =>{
+
+    const inventoryItems = [
+        {name:"Alcohol ", status:HealthStatus.GOOD},
+        {name:"Soft Drinks ",status:HealthStatus.UNDERSTOCK},
+        {name:"Dairy ", status: HealthStatus.OVERSTOCK}
+    ]
     return (
         <div className='operations-dashboard'>
-                Operations Dashboard
+                <InventoryHealthPanel inventoryItems={inventoryItems}/>
+                {/* <InventoryNotes/> */}
         </div>
     )
 }

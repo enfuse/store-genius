@@ -10,7 +10,7 @@ import {sendFeedback} from '../../client/storeGeniusClient'
 jest.mock("../client/storeGeniusClient");
 
 describe("<FeedbackForm/>", ()=>{
-  let renderResult: RenderResult
+  let renderResult: RenderResult;
   beforeEach( ()=>{
     renderResult = render(<FeedbackForm/>)
     }

@@ -1,0 +1,11 @@
+.inventory-health-panel {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.inventory-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

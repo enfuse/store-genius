@@ -5,7 +5,7 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 
 import TabPanel from '@mui/lab/TabPanel';
-import { OperationsDasboard } from '../OperationsDasboard/OperationsDasboard';
+import { OperationsDashboard } from '../OperationsDashboard/OperationsDashboard';
 import { BeerDemo } from '../BeerDemo/BeerDemo';
 import { MatterportDemo } from '../MatterportDemo/MatterportDemo';
 import { StoreViewer } from '../StoreViewer/StoreViewer';
@@ -29,7 +29,7 @@ export const Navigation =() => {
           </TabList>
         </Box>
         <TabPanel value="ops">
-            <OperationsDasboard/>
+            <OperationsDashboard/>
         </TabPanel>
         <TabPanel value="beer-demo">
             <BeerDemo/>

@@ -3,7 +3,7 @@ import {InventoryHealthPanel} from './InventoryHealthPanel'
 import {InventoryNotes} from './InventoryNotes'
 import  './types'
 import { HealthStatus } from './types'
-export const OperationsDasboard = () =>{
+export const OperationsDashboard = () =>{
 
     const inventoryItems = [
         {name:"Alcohol ", status:HealthStatus.GOOD},

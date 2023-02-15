@@ -11,7 +11,7 @@ export const InventoryHealthPanel = ({inventoryItems}: PropsWithChildren<Invento
             <Paper elevation={3} sx={{minHeight: 200, paddingLeft:5, paddingTop:1}}>
                 <div className='inventory-health-panel'>
                 {inventoryItems?.map(inventoryItem => 
-                    <InventoryItem key={inventoryItem.key} item={inventoryItem}/>
+                    <InventoryItem key={inventoryItem.name} item={inventoryItem}/>
                     )}
                 </div>
             </Paper>

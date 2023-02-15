@@ -27,7 +27,6 @@ export function MatterportFrame() {
         const showcase = document.getElementById('showcase') as HTMLIFrameElement;
         // const viewer = document.querySelector<MatterportViewer>('matterport-viewer')! as MatterportViewer;
         const currentPositionEl = document.getElementById('mp-position') as HTMLElement;
-        console.log("use effect");
         let sdk: MpSdk
 
         showcase.addEventListener('load', async function () {
@@ -53,8 +52,6 @@ export function MatterportFrame() {
             }
 
             sdk.Pointer.intersection.subscribe(cacheCoords);
-
-            console.log("handle load")
 
             showcase!.contentWindow!.document.body.addEventListener('contextmenu', () => console.log(pointToString(pointerPosition)));
         })

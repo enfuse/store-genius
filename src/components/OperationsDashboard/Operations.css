@@ -9,3 +9,29 @@
     flex-direction: column;
     align-items: center;
 }
+.inventory-item:hover {
+    cursor: pointer;
+    opacity: .4,
+}
+.inventory-item-summary-headings{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+
+}
+
+.inventory-selected {
+    background-color: rgb(235, 251, 251)
+}
+
+.expandable {
+    transition: height 1s 
+}
+
+
+h6 {
+    margin: 1px 0 .2em 2em
+}
+h4, h3 {
+    margin: 1.5em 0 .2em 1.2em
+}

@@ -3,15 +3,15 @@ import {InventoryHealthPanel} from './InventoryHealthPanel'
 import {InventoryNotes} from './InventoryNotes'
 import  './types'
 import { HealthStatus } from './types'
-export const OperationsDashboard = () =>{
+export  const  OperationsDashboard = () =>{
 
     const inventoryItems = [
-        {name:"Alcohol ", status:HealthStatus.GOOD},
-        {name:"Soft Drinks ",status:HealthStatus.UNDERSTOCK},
-        {name:"Dairy ", status: HealthStatus.OVERSTOCK}
+        {id:"alcohol",name:"Alcohol ", status:HealthStatus.GOOD},
+        {id:"soft-drinks",name:"Soft Drinks ",status:HealthStatus.UNDERSTOCK},
+        {id:"dairy",name:"Dairy ", status: HealthStatus.OVERSTOCK}
     ]
     return (
-        <div className='operations-dashboard'>
+        <div className='operations-dashboard' data-testid="operations-dasboard">
                 <InventoryHealthPanel inventoryItems={inventoryItems}/>
                 {/* <InventoryNotes/> */}
         </div>

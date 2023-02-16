@@ -19,6 +19,8 @@ jobs:
             creds: ${{ secrets.AZ_CREDENTIALS }}
         - run: az config set extension.use_dynamic_install=yes_without_prompt
         - run: docker build  -f Dockerfile . -t asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
+        - run: docker build  -f Dockerfile . -t asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }} --build-arg BUILD_ENV=prod  --build-arg APP_MATTERPORT_API_KEY=${{ secrets.APP_MATTERPORT_API_KEY }}
+
         - run: docker push asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
         - run: |
             az spring app deploy -s asae-enfuse-sandbox -g asaeSandbox -n store-genius --container-image store-genius:v${{ github.run_number }} --container-registry asaeenfuseacr.azurecr.io --registry-username ${{ secrets.ACR_USERNAME }} --registry-password ${{ secrets.ACR_PASSWORD }}

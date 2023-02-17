@@ -14,7 +14,6 @@ declare global {
 export function Matterport(props:any) {
     const SHOW_CURRENT_POSITION = false;
     const API_KEY = import.meta.env.VITE_REACT_APP_MATTERPORT_API_KEY
-
     useEffect(() => {
         window.process = {
           ...window.process,

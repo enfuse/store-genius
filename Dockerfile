@@ -5,13 +5,13 @@ FROM node:14-alpine AS builder
 ARG BUILD_ENV
 ARG MATTERPORT_API_KEY
 ENV ENV_FILE=.env.$BUILD_ENV
-ENV MATTERPORT_API_KEY = $MATTERPORT_API_KEY
+ENV MATTERPORT_API_KEY=$MATTERPORT_API_KEY
+WORKDIR /app
 # copy environment file to container
-COPY $ENV_FILE /app/$ENV_FILE
+COPY $ENV_FILE ./$ENV_FILE
 # RUN apt update -y && apt upgrade -y && apt install -y bash
 RUN apk add gettext
-RUN envsubst '\$MATTERPORT_API_KEY' < /app/$ENV_FILE > /app/.env
-WORKDIR /app
+RUN envsubst '\$MATTERPORT_API_KEY' < ./$ENV_FILE > ./.env
 
 COPY package*.json ./
 

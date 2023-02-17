@@ -3,6 +3,7 @@ on:
    push:
       branches:
         - main
+        - docker
 
 jobs:
    create-container:
@@ -18,7 +19,7 @@ jobs:
           with:
             creds: ${{ secrets.AZ_CREDENTIALS }}
         - run: az config set extension.use_dynamic_install=yes_without_prompt
-        - run: docker build  -f Dockerfile . -t asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }} --build-arg BUILD_ENV=prod  --build-arg MATTERPORT_API_KEY=${{ secrets.MATTERPORT_API_KEY }}
+        - run: docker build  -f Dockerfile . -t asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }} --build-arg BUILD_ENV=prod  --build-arg "MATTERPORT_API_KEY=${{secrets.MATTERPORT_API_KEY}}"
 
         - run: docker push asaeenfuseacr.azurecr.io/store-genius:v${{ github.run_number }}
         - run: |

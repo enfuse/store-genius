@@ -4,14 +4,17 @@ FROM node:14-alpine AS builder
 # set environment file based on the argument
 ARG BUILD_ENV
 ARG MATTERPORT_API_KEY
+ARG APP_PASSCODE
 ENV ENV_FILE=.env.$BUILD_ENV
-ENV MATTERPORT_API_KEY=$MATTERPORT_API_KEY
+ENV MATTERPORT_API_KEY = $MATTERPORT_API_KEY
+ENV APP_PASSCODE = $APP_PASSCODE
 WORKDIR /app
 # copy environment file to container
 COPY $ENV_FILE ./$ENV_FILE
 # RUN apt update -y && apt upgrade -y && apt install -y bash
 RUN apk add gettext
-RUN envsubst '\$MATTERPORT_API_KEY' < ./$ENV_FILE > ./.env
+RUN envsubst '\$MATTERPORT_API_KEY \$APP_PASSCODE' < /app/$ENV_FILE > /app/.env
+WORKDIR /app
 
 COPY package*.json ./
 

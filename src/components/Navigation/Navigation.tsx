@@ -23,8 +23,8 @@ export const Navigation =() => {
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange} centered>
             <Tab label="Operations" value="ops" />
-            <Tab label="Beer Recomendation Demo" value="beer-demo" />
-            <Tab label="Matterport Demo" value="materport-demo" />
+            <Tab label="Beer Recommendation Demo" value="beer-demo" />
+            <Tab label="Matterport Demo" value="matterport-demo" />
             <Tab label="Store Viewer " value="store-viewer" />
           </TabList>
         </Box>
@@ -34,7 +34,7 @@ export const Navigation =() => {
         <TabPanel value="beer-demo">
             <BeerDemo/>
         </TabPanel>
-        <TabPanel value="materport-demo"> 
+        <TabPanel value="matterport-demo">
             <MatterportDemo/>
         </TabPanel>
         <TabPanel value="store-viewer">

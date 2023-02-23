@@ -3,7 +3,7 @@ import { MatterportFrame } from './MatterportFrame'
 
 export const MatterportDemo = () =>{
     return (
-        <div className='materport-demo'>
+        <div className='matterport-demo'>
             <MatterportContextProvider>
                <MatterportFrame />
             </MatterportContextProvider>

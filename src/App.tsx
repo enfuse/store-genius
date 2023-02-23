@@ -6,7 +6,7 @@ import { Login } from './components/Login/Login';
 import { Typography } from '@mui/material';
 
 function App() {
-  const [isSignedIn, setSignedIn] = React.useState(false)
+  const [isSignedIn, setSignedIn] = React.useState(true)
   const [isWrongPassword, setWrongPassword] = React.useState(false)
   const verifyPassowrd = (psw:string)=>{
     if (psw == import.meta.env.VITE_REACT_APP_PASSCODE ){

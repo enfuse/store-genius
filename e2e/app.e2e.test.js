@@ -9,18 +9,14 @@ test('Homepage should have correct title', async ({ page }) => {
     await expect(page).toHaveTitle(/Store Genius/)
 })
 
-test('Feedback form should not submit if invalid email', async ({ page }) => {
+test('Feedback form should display error messages if invalid input', async ({ page }) => {
 
     await navigateToHomePage(page)
-    await page.fill('input[name=email]', 'some@account');
-    await page.fill('textarea[name=message]', 'this is a test message');
+    await page.fill('input[name=email]', 'invalid@email');
 
-    //const button = await page.$('#\\:r3\\:');
-    // Click the button
-    //await button.click();
-
-    await page.click('text=Send!')
-    await expect(page.$('#\\:r1\\:-helper-text')).toHaveText('Email is invalid');
+    await page.click('text=SEND!')
+    await expect(page.locator('#\\:r1\\:-helper-text')).toHaveText('Email is invalid');
+    await expect(page.locator('#\\:r3\\:-helper-text')).toHaveText('Give us more feedback!');
 
     await page.waitForTimeout(1000);
 })
